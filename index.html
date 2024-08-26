@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Listing</title>
+
+
+  <style>
+    @media only screen and (max-width: 767px) {
+      .mobileMenu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: #fff;
+        padding: 1rem;
+        z-index: 3;
+        color: #000;
+      }
+    }
+     
+  </style>
+</head>
+
+<body>
+
+  <body class="bg-white text-black">
+    <nav class="bg-blue-600 p-2 mb-6">
+      <div class="container max-w-6xl mx-auto flex flex-col sm:flex-row gap-8 items-center">
+        <nav class="
+    flex flex-wrap
+    items-center
+    justify-between
+    w-full
+    py-4
+    md:py-0
+    px-4
+    text-lg text-white
+    bg-transparent
+  ">
+          <div>
+            <a href="#">
+              Logo
+            </a>
+          </div>
+
+
+
+          <div class="hidden w-full md:flex md:items-center md:w-auto mobileMenu" id="menu">
+            <ul class="
+        pt-4
+        text-base text-black md:text-white
+        md:flex
+        md:justify-between 
+        md:pt-0">
+              <li>
+                <a class="md:p-4 py-2 block border-b-4 border-transparent hover:border-b-4 hover:border-white" href="#">Home</a>
+              </li>
+              <li>
+                <a class="md:p-4 py-2 block border-b-4 border-transparent hover:border-b-4 hover:border-white" href="#">Products</a>
+              </li>
+              <li>
+                <a class="md:p-4 py-2 block border-b-4 border-transparent hover:border-b-4 hover:border-white" href="#">Categories</a>
+              </li>
+
+            </ul>
+          </div>
+
+          <span class="relative text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+              <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+            </svg>
+            <small id="cart-count"
+              class="bg-black text-xs text-white w-4 h-4 absolute -top-2 -right-2 rounded-full">0</small>
+          </span>
+
+          <svg xmlns="http://www.w3.org/2000/svg" id="menu-button" class="h-6 w-6 cursor-pointer md:hidden block"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+
+
+
+        </nav>
+
+
+
+      </div>
+    </nav>
+
+    <main class="flex flex-col md:flex-row container mx-auto max-w-6xl">
+      <div class="space-y-4 p-2 w-full md:max-w-[16rem]">
+
+        <h2 class="text-2xl">Search</h2>
+        <div class="relative w-full">
+          <input type="text" id="search" class="border-b-2 border-gray-300 p-2 pl-10 transition focus:w-full"
+            placeholder="Search products..." />
+          <svg class="absolute left-2 top-1/2 -translate-y-1/2" xmlns="http://www.w3.org/2000/svg" width="20"
+            height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+            <path d="M21 21l-6 -6" />
+          </svg>
+        </div>
+
+
+        <h2 class="text-2xl mt-5">Filters</h2>
+        <h3 class="text-xl mb-2">Category</h3>
+        <div id="filters-container" class="text-xl space-y-2">
+          <!-- <div>
+            <input type="checkbox" class="check" id="men's clothing" />
+            <label for="men's clothing">men's clothing</label>
+          </div>
+          <div>
+            <input type="checkbox" class="check" id="women's clothing" />
+            <label for="women's clothing">women's clothing</label>
+          </div>
+          <div>
+            <input type="checkbox" class="check" id="games" />
+            <label for="games">Games</label>
+          </div>
+          <div>
+            <input type="checkbox" class="check" id="televisions" />
+            <label for="televisions">Televisions</label>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Products wrapper -->
+      <div>
+
+      
+      <div class="w-full"><select id="sortSelect">
+        <option value="lowToHigh">Low to High</option>
+        <option value="highToLow">High to Low</option>
+      </select></div>
+      <div id="products-wrapper"
+        class="w-full max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6 place-content-center p-4">
+        
+      </div>
+    </div>
+    </main>
+
+    <script src='https://cdn.tailwindcss.com'></script>
+    <script src="./script.js"></script>
+    <script>
+      const button = document.querySelector('#menu-button');
+      const menu = document.querySelector('#menu');
+
+
+      button.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    </script>
+
+  </body>
+
+</html>
